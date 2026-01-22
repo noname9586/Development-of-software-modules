@@ -46,7 +46,8 @@ function isNumber(v) {
 }
 
 // Примеры
-console.log(isNumber(10));    // true
-console.log(isNumber(NaN));   // false
-console.log(isNumber("10"));  // false
-console.log(isNumber(null));  // false
+console.log(isNumber(10));    
+console.log(isNumber(NaN));   
+console.log(isNumber("10"));  
+
+console.log(isNumber(null));  
