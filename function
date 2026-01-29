@@ -1,0 +1,264 @@
+// 1. Базовый вызов 
+function sayHello() {
+    console.log("Привет, JavaScript!");
+}
+sayHello();
+// Ответ: выводит "Привет, JavaScript!"
+
+//  2. Параметры 
+function greet(name) {
+    console.log("Здравствуй, " + name);
+}
+greet("Мария");
+greet("Алексей");
+// Ответ: 
+// Здравствуй, Мария
+// Здравствуй, Алексей
+
+// 3. Приветствие с проверкой 
+function greetCheck(name) {
+    if (name) {
+        return "Привет, " + name + "!";
+    } else {
+        return "Привет, Дмитрий!";
+    }
+}
+console.log(greetCheck("Сергей"));
+console.log(greetCheck(""));
+// Ответ: 
+// Привет, Сергей!
+// Привет, Дмитрий!
+// Пояснение:
+// if (name) проверяет, есть ли значение в параметре name
+// Пустая строка "" считается ложным (false) значением
+// return возвращает значение из функции
+
+// 4. Возведение в квадрат 
+function square(x) {
+    return x * x;
+}
+console.log(square(8));
+console.log(square(12));
+// Ответ: 
+// 8 в квадрате = 64
+// 12 в квадрате = 144
+// Пояснение:
+// x * x - умножение числа само на себя
+// Функция возвращает результат вычисления
+// Можно передавать целые и дробные числа
+// square(8) → 8 * 8 → 64
+
+// 5. Сумма массива 
+function sumArray(arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
+    return total;
+}
+console.log(sumArray([10, 20, 30]));
+console.log(sumArray([]));
+// Ответ: 
+// Сумма [10, 20, 30] = 60
+// Сумма [] = 0
+// Пояснение:
+// let total = 0 - создаем переменную для суммы
+// arr.length - количество элементов в массиве
+// Цикл for проходит по всем элементам массива
+// arr[i] - получаем элемент массива по индексу i
+// total += arr[i] - то же что total = total + arr[i]
+// Для пустого массива цикл не выполнится, вернется 0
+
+// 6. Минимум из двух 
+function min(a, b) {
+    if (a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+console.log(min(15, 42));
+console.log(min(7, 7));
+// Ответ: 
+// min(15, 42) = 15
+// min(7, 7) = 7
+// Пояснение:
+// Сравниваем a и b с помощью оператора <
+// Если a меньше b, возвращаем a
+// Иначе возвращаем b
+// Если числа равны, условие a < b ложно, возвращается b (или a, они равны)
+
+// 7. Стрелочные функции 
+const double = function(x) {
+    return x * 2;
+};
+console.log("double(25) = " + double(25));
+console.log("double(3.14) = " + double(3.14));
+console.log("double(0) = " + double(0));
+// Ответ: 
+// double(25) = 50
+// double(3.14) = 6.28
+// double(0) = 0
+// Пояснение:
+// Функция создается и присваивается переменной double
+// Умножает число на 2
+
+// 8. Колбэк 
+function apply(fn, x) {
+    return fn(x);
+}
+function triple(n) {
+    return n * 3;
+}
+function toText(n) {
+    return "Число: " + n;
+}
+console.log(apply(triple, 7));
+// Ответ: 
+// apply(triple, 7) = 21
+// Пояснение:
+// apply принимает два параметра: fn (функция) и x (число)
+// fn(x) вызывает переданную функцию с аргументом x
+// triple - функция умножает на 3: triple(7) → 21
+
+// 9. Фильтр по длине слова 
+function filterByLength(words, minLen) {
+    let longWords = [];
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > minLen) {
+            longWords.push(words[i]);
+        }
+    }
+    return longWords;
+}
+console.log(filterByLength(["кот", "собака", "мышь", "жираф"], 4));
+console.log(filterByLength(["программирование", "код", "алгоритм"], 6));
+// Ответ: 
+// Array [ "собака", "жираф" ]
+// Array [ "программирование", "алгоритм" ]
+// Пояснение:
+// words[i].length - длина строки (количество символов)
+// words[i].length > minLen - проверяем длину слова
+// Если слово достаточно длинное, добавляем в новый массив
+// longWords.push() - добавляет элемент в конец массива
+// "кот".length = 3, "собака".length = 6
+
+// 10. Верхний регистр 
+function toUpperArray(arr) {
+    let upperArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        upperArr.push(arr[i].toUpperCase());
+    }
+    return upperArr;
+}
+console.log(toUpperArray(["javascript", "html", "css"]));
+console.log(toUpperArray(["функция", "массив", "объект"]));
+// Ответ: 
+// Array(3) [ "JAVASCRIPT", "HTML", "CSS" ]
+// Array(3) [ "ФУНКЦИЯ", "МАССИВ", "ОБЪЕКТ" ]
+// Пояснение:
+// toUpperCase() - метод строки, делает все буквы заглавными
+// Создаем новый массив upperArr
+// Копируем в него преобразованные строки
+// Исходный массив не изменяется
+// Работает с английскими и русскими буквами
+
+// 11. Значение по умолчанию 
+function power(base, exp) {
+    if (exp === undefined) {
+        exp = 2;
+    }
+    let result = 1;
+    for (let i = 0; i < exp; i++) {
+        result *= base;
+    }
+    return result;
+}
+console.log(power(4));
+console.log(power(10, 0));
+// Ответ: 
+// 4 во 2 степени = 16
+// 10 в 0 степени = 1
+// Пояснение:
+// if (exp === undefined) - проверяем, передан ли второй аргумент
+// Если не передан, устанавливаем exp = 2 (квадрат)
+// result = 1 - начальное значение для умножения
+// Цикл for повторяется exp раз
+// result *= base - умножает result на base
+// Любое число в степени 0 = 1 (цикл не выполнится)
+
+// 12. Проверка на чётность 
+function isEven(n) {
+    return n % 2 === 0;
+}
+console.log(isEven(100));
+console.log(isEven(17));
+console.log(isEven(-8));
+// Ответ: 
+// 100 чётное? true
+// 17 чётное? false
+// -8 чётное? true
+// Пояснение:
+// % - оператор остатка от деления
+// n % 2 возвращает остаток от деления n на 2
+// Если остаток 0, число чётное
+// -8 % 2 = 0, отрицательные чётные числа тоже чётные
+// Функция возвращает true или false
+
+// 13. Округление вниз 
+function floorNumber(n) {
+    return Math.floor(n);
+}
+console.log(floorNumber(9.99));
+console.log(floorNumber(-4.2));
+// Ответ: 
+// floor(9.99) = 9
+// floor(-4.2) = -5
+// Пояснение:
+// - Math.floor() - встроенная функция округления вниз
+// - Убирает дробную часть, оставляет целую
+// - Для положительных чисел: 9.99 → 9
+// - Для отрицательных чисел: -4.2 → -5 (меньше, а не больше)
+
+// 14. Диапазон 
+function inRange(x, a, b) {
+    if (x >= a && x <= b) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(inRange(18, 16, 65));
+console.log(inRange(15, 20, 30));
+console.log(inRange(-5, -10, 10));
+// Ответ: 
+// 18 в диапазоне 16-65? true
+// 15 в диапазоне 20-30? false
+// -5 в диапазоне -10 до 10? true
+// Подробное пояснение:
+// x >= a - проверяем, что x больше или равно a
+// x <= b - проверяем, что x меньше или равно b
+// && - логическое И (оба условия должны быть true)
+// 15 не входит в 20-30, поэтому false
+// -5 больше -10 и меньше 10, поэтому true
+
+// 15. Повтор строки 
+function repeatText(text, times) {
+    let repeated = "";
+    for (let i = 0; i < times; i++) {
+        repeated += text;
+    }
+    return repeated;
+}
+console.log(repeatText("yo", 5));
+console.log(repeatText("test", 0));
+// Ответ: 
+// 'yo' повторить 5 раз = yoyoyoyoyo
+// 'test' повторить 0 раз = <empty string>
+// Подробное пояснение:
+// - let repeated = "" - начинаем с пустой строки
+// - Цикл for повторяется times раз
+// - repeated += text - добавляет text к строке repeated
+// - times = 0: цикл не выполняется, возвращается пустая строка
+// - times = 5: цикл выполняется 5 раз, добавляя "yo" каждый раз
+// - Можно использовать встроенный метод: text.repeat(times)
