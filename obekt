@@ -1,0 +1,148 @@
+// 1. Создание объекта
+var book = {
+    title: "1984",
+    author: "Orwell",
+    year: 1949
+};
+
+console.log(book.title);
+console.log(book.author);
+console.log(book.year);
+
+
+// 2. Добавить свойство
+book.pages = 300;
+console.log(book.pages);
+
+
+// 3. Удалить свойство
+delete book.year;
+console.log(book);
+
+
+// 4. Поле с пробелом
+var student = {
+    "full name": "Ivan Ivanov"
+};
+
+console.log(student["full name"]);
+
+
+// 5. Увеличить возраст
+var person = { name: "Ivan", age: 30 };
+
+person.age = person.age + 1;
+console.log(person.age);
+
+
+// 6. Вложенный объект
+var car = {
+    engine: {
+        power: 150,
+        type: "diesel"
+    }
+};
+
+console.log(car.engine.type);
+
+
+// 7. Проверка существования (без ?.)
+if (car.owner && car.owner.name) {
+    console.log(car.owner.name);
+} else {
+    console.log("нет такого свойства");
+}
+
+
+// 8. Перебор объекта
+var user1 = { id: 1, login: "root", isAdmin: true };
+
+for (var key in user1) {
+    console.log(key + ": " + user1[key]);
+}
+
+
+// 9. Цена ноутбука
+var orders = {
+    id1: { product: "Phone", price: 500 },
+    id2: { product: "Laptop", price: 1500 }
+};
+
+console.log(orders.id2.price);
+
+
+// 10. Функция получения значения
+function getValue(obj, key) {
+    return obj[key];
+}
+
+console.log(getValue(person, "name"));
+
+
+// 11. Проверка ключа
+function hasAge(user) {
+    if ("age" in user) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+var user2 = { name: "Ann", age: 20 };
+console.log(hasAge(user2));
+
+
+// 12. Количество свойств
+function countProps(obj) {
+    var count = 0;
+
+    for (var key in obj) {
+        count++;
+    }
+
+    return count;
+}
+
+console.log(countProps({ a:1, b:2, c:3 }));
+
+
+// 13. Копия объекта (простая)
+var user3 = { name: "Ann", age: 20 };
+
+var copy = {};
+for (var key in user3) {
+    copy[key] = user3[key];
+}
+
+copy.name = "Ivan";
+
+console.log(user3.name); // оригинал
+console.log(copy.name);  // копия
+
+
+// 14. Объединение объектов
+var a = { x:1, y:2 };
+var b = { y:5, z:3 };
+
+var merged = {};
+
+for (var key in a) {
+    merged[key] = a[key];
+}
+
+for (var key in b) {
+    merged[key] = b[key];
+}
+
+console.log(merged);
+
+
+// 15. Объект из массива
+var keys = ["a", "b", "c"];
+var obj = {};
+
+for (var i = 0; i < keys.length; i++) {
+    obj[keys[i]] = 0;
+}
+
+console.log(obj);
