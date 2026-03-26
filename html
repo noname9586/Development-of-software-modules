@@ -1,0 +1,85 @@
+// 1. Изменение текста
+var title = document.getElementById("title");
+title.textContent = "Добро пожаловать!";
+
+
+// 2. Подсчёт элементов
+var paragraphs = document.getElementsByTagName("p");
+alert("Количество <p>: " + paragraphs.length);
+
+
+// 3. Изменение атрибутов
+var link = document.getElementById("link");
+link.href = "https://google.com";
+link.target = "_blank";
+
+
+// 4. Стилизация
+var firstP = document.getElementsByTagName("p")[0];
+firstP.style.color = "red";
+firstP.style.fontSize = "20px";
+
+
+// 5. Изменение картинки
+var img = document.getElementById("img");
+img.src = "https://via.placeholder.com/150";
+
+
+// 6. Генерация списка
+var ul = document.getElementById("list");
+
+for (var i = 1; i <= 5; i++) {
+    var li = document.createElement("li");
+    li.textContent = i;
+    ul.appendChild(li);
+}
+
+
+// 7. Удаление элемента
+var removeBtn = document.getElementById("removeBtn");
+
+removeBtn.onclick = function() {
+    if (ul.lastChild) {
+        ul.removeChild(ul.lastChild);
+    }
+};
+
+
+// 8. Случайный фон
+var bgBtn = document.getElementById("bgBtn");
+
+bgBtn.onclick = function() {
+    var r = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+
+    document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+};
+
+
+// 9. Ввод и вывод текста
+var input = document.getElementById("inputText");
+var showBtn = document.getElementById("showBtn");
+var output = document.getElementById("output");
+
+showBtn.onclick = function() {
+    output.textContent = input.value;
+};
+
+
+// 10. Скрыть/Показать
+var toggleBtn = document.getElementById("toggleBtn");
+var block = document.getElementById("block");
+
+toggleBtn.onclick = function() {
+    if (block.style.display === "none") {
+        block.style.display = "block";
+    } else {
+        block.style.display = "none";
+    }
+};
+
+</script>
+
+</body>
+</html>
