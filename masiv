@@ -1,0 +1,136 @@
+// 1. Добавить элемент
+let arr1 = [1, 2];
+arr1.push(3);
+console.log(arr1);
+
+
+// 2. Удалить элемент
+let arr2 = ["a", "b", "c"];
+let removed = arr2.pop();
+console.log("Удалили:", removed);
+
+
+// 3. Проверка наличия
+let arr3 = [10, 20, 30, 40];
+console.log(arr3.includes(100));
+
+
+// 4. Подмассив
+let arr4 = [5, 10, 15, 20, 25];
+let sub = arr4.slice(1, 4);
+console.log(sub);
+
+
+// 5. splice
+let arr5 = [1, 2, 3, 4];
+arr5.splice(1, 2, "X", "Y");
+console.log(arr5);
+
+
+// 6. Умножение элементов
+let arr6 = [2, 4, 6];
+let newArr6 = arr6.map(x => x * 10);
+console.log(newArr6);
+
+
+// 7. Чётные числа
+let arr7 = [1, 2, 3, 4, 5, 6];
+let even = arr7.filter(x => x % 2 === 0);
+console.log(even);
+
+
+// 8. Сумма через reduce
+let arr8 = [10, 20, 30, 40];
+let sum = arr8.reduce((acc, x) => acc + x, 0);
+console.log(sum);
+
+
+// 9. Найти объект
+let users1 = [
+  {id: 1, name: "Anna"},
+  {id: 2, name: "Ivan"},
+  {id: 3, name: "Olga"}
+];
+
+let user = users1.find(u => u.name === "Ivan");
+console.log(user);
+
+
+// 10. Сортировка
+let arr10 = [100, 5, 20, 15];
+arr10.sort((a, b) => a - b);
+console.log(arr10);
+
+
+// 11. Пользователи (сложная)
+const users2 = [
+  {id: 1, name: "Anna", age: 25, city: "Moscow", salary: 80000},
+  {id: 2, name: "Ivan", age: 30, city: "SPb", salary: 120000},
+  {id: 3, name: "Olga", age: 22, city: "Moscow", salary: 60000},
+  {id: 4, name: "Alex", age: 35, city: "SPb", salary: 150000}
+];
+
+let resultUsers = users2
+  .filter(u => u.city === "Moscow" && u.age > 23)
+  .sort((a, b) => b.salary - a.salary)
+  .map(u => u.name);
+
+console.log(resultUsers);
+
+
+// 12. Матрица
+const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+let resultMatrix = matrix
+  .flat()
+  .filter(x => x % 2 !== 0)
+  .map(x => x * 2)
+  .sort((a, b) => a - b);
+
+console.log(resultMatrix);
+
+
+// 13. Товары
+const products = [
+  {id: 1, name: "Ноутбук", price: 25000},
+  {id: 2, name: "Мышь", price: 800},
+  {id: 3, name: "Клавиатура", price: 1200},
+  {id: 4, name: "Наушники", price: 1500}
+];
+
+let cheapProducts = products
+  .filter(p => p.price < 1000)
+  .sort((a, b) => a.price - b.price);
+
+console.log(cheapProducts);
+
+
+// 14. Поиск по email
+const users3 = [
+  {id: 1, name: "Иван", email: "ivan@mail.com"},
+  {id: 2, name: "Мария", email: "maria@mail.com"},
+  {id: 3, name: "Алексей", email: "alex@mail.com"}
+];
+
+const searchEmail = "maria@mail.com";
+
+let foundUser = users3.find(u => u.email === searchEmail);
+console.log(foundUser);
+
+
+// 15. Сумма корзины
+const cartItems = [
+  {id: 1, name: "Футболка", price: 500, quantity: 2},
+  {id: 2, name: "Джинсы", price: 2000, quantity: 1},
+  {id: 3, name: "Кроссовки", price: 3000, quantity: 1}
+];
+
+let total = cartItems.reduce((acc, item) => {
+  return acc + item.price * item.quantity;
+}, 0);
+
+console.log(total);
